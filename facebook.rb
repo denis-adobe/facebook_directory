@@ -16,9 +16,9 @@ def open_links(new_url)
 
 links.each do |link|
   if !doc.at_css(".direct_listing")
-  return open_links link["href"]
+  return open_links(link["href"])
   else
-  puts new_url
+  puts link["href"].text
   end
 
 end
