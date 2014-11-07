@@ -17,13 +17,12 @@ links.each do |link|
 
 
         if !doc.at_css(".direct_listing")
-              array << link["href"]
+              array.push(link["href"])
               return open_links(link["href"],array)
         else
               p link["href"]
-              p array
               File.write("log.txt",array.to_s)
-
+              return open_links(array.last,array)
         end#if
 
 end#each
