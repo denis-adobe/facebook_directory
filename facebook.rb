@@ -7,28 +7,43 @@ https_url="https://www.facebook.com/directory/people/"
 
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
-def open_links(new_url,*array)
+def open_links(new_url)
 
       doc = Nokogiri::HTML open(new_url)
       links = doc.css(".fbDirectoryBox a")
       p doc.css("title")[0].text
 
+
+
 links.each do |link|
 
 
-        if !doc.at_css(".direct_listing")
-              array.push(link["href"])
-              return open_links(link["href"],array)
-        else
-              p link["href"]
-              File.write("log.txt",array.to_s)
-              return open_links(array.last,array)
-        end#if
 
+
+
+if !doc.at_css(".direct_listing")# Keine Nutzerliste
+open_tree = open_links(link["href"])
+else# Nutzerliste
+p link["href"]
+end#if
+
+end#each
+
+end#def
+
+
+def char_select(site_url)
+
+site = Nokogiri::HTML open(site_url)
+chars = site.css(".alphabet_list a")
+
+
+chars.each do |char|
+p char["href"]
+open_link = open_links(char["href"])
 end#each
 
 end
 
 
-
-open_links(https_url)
+char_select(https_url)
