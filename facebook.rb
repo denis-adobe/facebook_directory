@@ -3,6 +3,8 @@ require 'open-uri'
 require 'openssl'
 require 'rubygems'
 
+require './sqlite.rb'
+
 https_url="https://www.facebook.com/directory/people/"
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
