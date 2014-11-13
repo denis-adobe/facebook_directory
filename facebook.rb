@@ -29,6 +29,7 @@ end#def
 def char_select(site_url)
 
 site = Nokogiri::HTML open(site_url)
+p site.at_css("title")
 chars = site.css(".alphabet_list a")
 chars.each do |char|
 p char["href"]
