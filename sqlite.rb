@@ -1,4 +1,4 @@
-require 'sqlite'
+#require 'sqlite'
 
 def sql_ite()
   if true #Datenbank existiert

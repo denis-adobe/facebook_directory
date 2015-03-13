@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'openssl'
 require 'rubygems'
+require 'mechanize'
 
 require './sqlite.rb'
 
