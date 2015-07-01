@@ -33,7 +33,8 @@ def open_links(new_url)
 end#def
 
 #
-# Select all Characters from div.alphabet_list  
+# Select all Characters from div.alphabet_list a
+# and use the links to iterate the link list
 #
 def char_select(site_url)
 
